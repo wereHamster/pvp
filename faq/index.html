@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Package Versioning Policy – </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+  
+  /* General styling */
+  
+  h1,h2,h3,h4,h5,h6 {
+  font-family: Raleway,Helvetica,Arial,sans-serif;
+  text-align: left;
+  }
+  
+  body {
+    font-family: Source Sans Pro,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.5;
+  
+    margin: 0;
+    background-color: #FDFDFF;
+  }
+  
+  code {
+    background-color: #f4f4f4;
+    padding: 0 2px 0 2px;
+    border-radius: 2px;
+  }
+  
+  figure {
+    text-align: center;
+    margin: 0;
+  }
+  
+  h1 { font-size: 32px; font-weight: bold; border-bottom: 1px solid black; }
+  h2 { font-size: 24px; font-weight: bold; border-bottom: 1px solid black; }
+  h3 { font-size: 18px; font-weight: bold; border-bottom: 1px solid black; }
+  
+  li {
+    margin-bottom: 0.7em;
+  }
+  
+  a { text-decoration: none; color: #428bca; }
+  a:hover { text-decoration: underline; cursor: pointer; }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  div.sourceCode {
+  border: 0px solid gray;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  padding: 0 1em;
+  }
+  
+  /* Menu */
+  
+  #menu {
+    background: linear-gradient(to right,#150e1a 0%,#22172a 100%);
+    padding: 10px 10px 10px 20px;
+  }
+  
+  #menu .item {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #d1cddc;
+    max-height: 43px;
+  }
+  
+  #menu .item.left {
+    float: left;
+  }
+  #menu .item.right {
+    float: right;
+  }
+  
+  #menu .item a {
+    font-size: 20px;
+    color: #d1cddc;
+  }
+  #menu .item a:hover {
+    color: white;
+  }
+  
+  #menu .logo-container {
+    margin-right: 50px;
+  }
+  
+  #menu .logo {
+    height: 43px;
+    width: 64px;
+    float: left;
+  }
+  
+  #menu .logo-text {
+    float: left;
+  font-size: 20px;
+   font-weight: bold;
+    margin-left: 10px;
+    margin-top: 9px;
+  }
+  
+  #menu .item.link {
+    margin: 8px 20px 0 0;
+  }
+  
+  /* Main container */
+  
+  #container {
+    width: 800px;
+    margin: auto;
+    margin-top: 20px;
+  }
+  
+  footer {
+    font-size: 10px;
+    font-weight: lighter;
+    text-align: right;
+    width: 800px;
+    margin: auto;
+    margin-top: 20px;
+  }
+  
+  /* Pages */
+  
+  .page {
+    display: none;
+    width: 1200px;
+    margin: auto;
+  }
+  .page:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Left column */
+  
+  .leftcol {
+    float: left;
+    padding: 0;
+    width: 750px;
+  }
+  .leftcol:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Left split */
+  .leftcol.col-2 .leftcol-2-left {
+    width: 370px;
+    float: left;
+  }
+  .leftcol.col-2 .leftcol-2-right {
+    width: 370px;
+    float: right;
+  }
+  
+  /* Right column */
+  
+  .rightcol {
+    float: right;
+    padding: 0;
+    width: 425px;
+  }
+  
+  /* Main content */
+  
+  .main-header {
+    margin: 0;
+  }
+  .main-header-subtext {
+    margin-bottom: 20px;
+  }
+    
+  </style>
+</head>
+<body>
+
+<nav id="menu" class="clearfix">
+  <div class="item left logo-container clearfix"><img class="logo" src="http://www.haskell.org/static/img/logo.png" alt="Haskell Logo"><span class="logo-text">PVP.haskell.org</span></div>
+  <div class="item link left"><a href="//pvp.haskell.org/">PVP Specification</a></div> &nbsp;
+  <div class="item link left"><a href="//pvp.haskell.org/faq">PVP FAQ</a></div>
+</nav>
+
+<div id="container">
+<h1 id="haskell-pvp-faq">Haskell PVP FAQ [draft]</h1>
+<p>This FAQ is intended answer questions related to aspects commonly being brought up in discussions involving the Haskell <a href="http://pvp.haskell.org">PVP</a>. As such, the answers given in this FAQ are biased towards motivating and elaborating on the ideas behind the PVP rather than challenging the policy.</p>
+<p>(More critical views on the PVP, links to past discussions, and alternative proposals can be found at <em>TODO</em>.)</p>
+<hr />
+<h2 id="semver">SemVer</h2>
+<h3 id="how-does-the-pvp-relate-to-semantic-versioning-semver">How does the PVP relate to <a href="http://semver.org">Semantic Versioning (SemVer)</a>?</h3>
+<p>Historically, the <a href="http://semver.org">SemVer specification</a> saw the light of day in late 2009, whereas the first incarnation of the PVP was already conceived <a href="https://mail.haskell.org/pipermail/haskell/2006-November/018762.html">3 years earlier in late 2006</a>.</p>
+<p>The basic goal of SemVer and PVP are very similiar, namely, to <strong>provide a formal specification for version numbers to make it possible to specify version bounds for dependency management</strong> (c.f. <a href="http://semver.org/#why-use-semantic-versioning">Why Use Semantic Versioning?</a>).</p>
+<p>The most apparent somewhat superficial difference between SemVer and the PVP is which components of the version number are interpreted as major, minor, and patch-level numerals:</p>
+<ul>
+<li>PVP: <em>MAJOR.MAJOR.MINOR.PATCH</em></li>
+<li>SemVer: <em>MAJOR.MINOR.PATCH</em></li>
+</ul>
+<p>While having a 2-part major component may confuse people used to SemVer, it provides an additional dimension for communicating API changes:</p>
+<ul>
+<li><p>One popular way is to use the first component of the major version to denote &quot;epochs&quot; of APIs (c.f. Edward Kmett's packages) and allowing development (with major version increments) to continue independently in different epochs. This allows to avoid suffixing packages names with numbers to denote different epochs (e.g. <code>base2-1.0</code>, <code>base3-1.0</code>, <code>base4-1.0</code>).</p></li>
+<li><p>A different way to see the 2-part major version component is to allow for nuanced signaling of large vs. not-so-large backward incompatible changes.</p></li>
+<li><p>Yet another way is to use the first component for marketing purposes, e.g. to increment to &quot;1.0&quot; when a package is considered mature.</p></li>
+</ul>
+<p>Another important difference between SemVer and PVP is that the PVP doesn't distinguish between <code>0.x.y</code> and <code>1.x.y</code>. SemVer considers the major version zero for initial development and allows the API to change without requiring major version increment. The PVP, however, <em>does not</em> provide for such an exception.</p>
+<p>Under the PVP, packages with a zero major version provide the same contractual guarantees as versions released with a non-zero major version.</p>
+<p>Also, while SemVer allows for appending version tags and/or build metadata (e.g. <code>1.0.0-alpha+git.5114f85</code>), the PVP does not regulate nor support such additional information in version numbers.</p>
+<p>Last but not least, SemVer is mostly language agnostic, while the PVP is designed with Haskell and the needs of the Hackage/Cabal ecosystem in mind, and describes the rules in terms of Haskell's specific language facilities (module system, name resolution, typeclass instances).</p>
+<hr />
+<h3 id="can-we-switch-to-using-the-more-widely-established-semver-standard-instead-of-the-less-known-pvp-on-hackage">Can we switch to using the more widely established SemVer standard instead of the less known PVP on Hackage?</h3>
+<p>While this would avoid the initial confusion for new users coming from ecosystems where SemVer has become the standard, it would come at a significant cost for the existing Hackage ecosystem.</p>
+<p>Most notably, users and tooling would need to know which dependencies follow SemVer and which are still using the PVP scheme.</p>
+<p>If it's to be allowed for a package to switch from PVP to SemVer, one would also need to keep track of the version at which the transition occurred. Also, packages which are still using PVP-style upper bounds would miss out on backward compatible updates during the transition, since a PVP major version upper bound is just a minor version upper bound in the SemVer representation.</p>
+<hr />
+<h2 id="upper-bounds">Upper bounds</h2>
+<h3 id="defining-upper-bounds-requires-to-know-the-future-as-you-cant-know-whether-a-not-yet-released-future-version-will-contain-a-breaking-change.">Defining upper bounds requires to know the future, as you can't know whether a not yet released future version will contain a breaking change.</h3>
+<p>Of course, the PVP doesn't provide you with a way to know <em>for sure</em> when compatibility will break; however, the PVP tells you a <em>least upper bound up to which your package is guaranteed</em> (under certain conditions) to remain compatible.</p>
+<p>Without the PVP contract, you'd be left with no choice but to constraint your package to versions of dependencies for which you have empirical &quot;known to work&quot; evidence for (or complete control over).</p>
+<hr />
+<h3 id="upper-bounds-can-be-inferred-by-running-build-bots-to-determine-when-breaking-changes-have-been-introduced-in-dependencies.">Upper bounds can be inferred by running build bots to determine when breaking changes have been introduced in dependencies.</h3>
+<p>This assumes that compile-success is equivalent to semantic correctness. While it's true that a compile failure implies that a breakage has occurred, the inverse is not true in general.</p>
+<p>There's been already a couple of incidents (see next Q) when popular packages changed their semantics without changing their type-signature and thereby caused problems in packages which didn't have proper PVP-mandated upper bounds in place.</p>
+<p>Therefore leaving off upper bounds under the assumption that breakages will show in form of build-failures is a dangerous erroneous belief, as it can result in hard to detect/debug silent failures.</p>
+<hr />
+<h3 id="what-are-some-real-world-examples-of-packages-causing-breakage-due-to-semantic-changes">What are some real-world examples of packages causing breakage due to semantic changes?</h3>
+<p>In the major version <code>aeson-0.10</code>, the serialization of <code>Maybe</code>-values was deliberately changed in an incompatible way which caused packages not declaring an upper bound to be caught off guard. In <code>aeson-0.11</code> this was changed yet again.</p>
+<p>In <code>deepseq-1.4</code>, the default method implementation of <code>rnf</code> was changed from reducing to WHNF to generically deriving a NF-evaluating traversal. Code which assumed a default of <code>rnf x = seq x ()</code> could break if the new <code>rnf</code> implementation resulted in suddenly traversing a data structure which wasn't meant to be traversed beyond WHNF (like e.g. cyclic. datastructures).</p>
+<hr />
+<h3 id="what-is-the-intended-meaning-of-upper-bounds-is-it-not-known-to-be-compatible-or-rather-known-not-to-be-compatible">What is the intended meaning of upper bounds; is it &quot;<em>not known</em> to be compatible&quot; or rather &quot;<em>known not</em> to be compatible&quot;?</h3>
+<p>Note how confusingly similiar the two variants sound; it's just a subtle difference in word order. Also note the use of the term &quot;compatible&quot; which is intended to emphasize <em>semantic API compatibility</em>, rather than merely succesfull compilation (I.e. there's no &quot;it compiles, it works&quot; property which holds in general for Haskell... yet).</p>
+<p>The central idea of the PVP (and SemVer) is to serve as a contract to communicate API compatibility guarantees (NB: <em>not</em> to predict breakage!). To this end, the version number semantics are encoded in sophisticated rules for when exactly to increment the various components.</p>
+<p>As such, it makes little sense to interpret the PVP mandated upper bounds as the stronger &quot;known not to be compatible&quot; (i.e. having evidence of incompatibility), as then one would almost never be able to declare upper bounds in the first place. This would greatly reduce the value of the PVP as well as make it difficult to justify the effort of following the complex formal rules for assigning version numbers in the first place.</p>
+<p>Consequently, the PVP mandated upper bounds are intended to denote &quot;not known (yet) to be compatible&quot; bounds, i.e. the least upper bounds up to which API compatibility is guaranteed by the PVP contract. This may not be an ultimate guarantee, but without such upper bounds, there's no guarantee <em>at all</em> the next released version won't cause breakage.</p>
+<p>Or put differently, the goal of PVP mandated upper bounds is to be conservative, but in the most liberal way possible.</p>
+<hr />
+<h3 id="packages-like-base-almost-never-break-my-code-on-major-version-increments-does-this-make-predicted-upper-bounds-less-useful">Packages like <code>base</code> almost never break my code on major version increments; does this make predicted upper bounds less useful?</h3>
+<p><code>base</code> is an example for a large package with a huge exposed API, which is tracked as a whole by a single version number. Often, API consumers tend to use only a small fraction of the exposed API surface, and in the case of <code>base</code> this most often a very stable subset. However, <code>base</code> being so large typically changes in backward incompatible ways with each major GHC release, even though most programs are not affected.</p>
+<p>So the problem here is that big monolithic packages are rather disadvantageous in the context of semantic versioning, whose goal is to formalize version numbers to the point of making predicting upper bounds feasible at all.</p>
+<p>However, this doesn't detract from the usefulness from upper bounds; this just means that more cost is shifted from the single API provider to its many API consumers for such big monolithic packages.</p>
+<p>Ideally, such big packages can be deconstructed into smaller modular packages which each focus on separate concerns. This way version numbers become more expressive as they cover a smaller API surface, and the risk for API consumers of running into a major version update because of changes in totally unrelated parts is reduced accordingly.</p>
+<p>But this comes at a cost: Maintaining a carefully crafted set of focused packages is more costly to the maintainer compared to maintaining a single monolithic package, which comes at the expense of API consumers as they need to review major version updates more frequently for potential incompatibilities.</p>
+<hr />
+<h2 id="hackage-stackage">Hackage &amp; Stackage</h2>
+<h3 id="my-package-is-in-stackage-and-people-can-use-it-just-fine-do-i-need-to-follow-the-pvp-and-put-in-version-bounds">My package is in Stackage and people can use it just fine; do I need to follow the PVP and put in version bounds?</h3>
+<p>Yes, packages uploaded to Hackage are expected to honor the PVP.</p>
+<p>There are course also 3rd party distribution/curation systems, such as Stackage or Linux distributions, which create distributions from subsets of Hackage's repository. But the existence of such external systems does not relieve package authors from the responsibility to follw the PVP when publishing on Hackage.</p>
+<p>Hackage is designed to be a self-contained package repository for consumption by <code>cabal</code> which relies on constraint-solving for computing install plans. Without accurate version bounds, your package will result in poor user experience with <code>cabal</code> which won't have accurate enough information to operate properly, as well as run into problems such as Haddock failing to regenerate documentation due to degrading install-plans.</p>
+<hr />
+<h2 id="applying-the-pvp">Applying the PVP</h2>
+<h3 id="my-package-doesnt-provide-any-api-does-the-pvp-apply-to-executable-only-packages">My Package doesn't provide any API; does the PVP apply to executable-only packages?</h3>
+<p>Even if a package doesn't expose any public API, the guidelines for API consumers which describe how to declare version constraints for tracking dependencies still apply.</p>
+<p>In some cases, the rules for API providers may apply as well, like for executables such as <code>alex</code> or <code>happy</code> which generate code, and especially when such packages are meant to be tracked as dependencies in <code>build-tools</code>.</p>
+<hr />
+<h3 id="what-implications-does-the-pvp-have-when-re-exporting-api-elements">What implications does the PVP have when re-exporting API elements?</h3>
+<p>The PVP is a contract between the API provider which declares a package version, and any API consumer depending on that package.</p>
+<p>It's the responsibility of the provider to guarantee that the exposed API is a function of the declared version, and in particular does not depend on the versions of its transitive dependencies, as this defy the purpose of the PVP.</p>
+<p>To avoid such issues, it's best to avoid re-exporting API elements from other packages when it's avoidable. In cases where it's essential to re-export API elements, try to reduce the risk by being very defensive and control exactly what is re-exported (e.g. avoid unconstrained module-level re-exports), and make sure to use tight version bounds.</p>
+<p>A related issue is conditional APIs (see next item).</p>
+<hr />
+<h3 id="what-implications-does-the-pvp-have-for-conditional-apis">What implications does the PVP have for conditional APIs?</h3>
+<p>As already stated in the previous item, it's important for a package version to uniquely identify the exposed API in order to fulfill its purpose as a semantic version. So ideally, the exposed API shall be a function of <em>only</em> its package version.</p>
+<p>However, conditional APIs, cause the exposed API to weaken the relationship to its version. So packages can't rely on the package providing an API to be accurately described by only its version, but rather need to track all other variables which may have an effect on the relied upon API.</p>
+<p>This obviously increases the risk for errors, due to the combinatorial increase of configurations one needs to consider, and should therefore be avoided.</p>
+<p>However, it is reasonable to deviate from this recommendation, when the API conditionality is practically impossible to observe by API consumers. An example is when API features are conditional on compiler features which consumers are only able to use of if they depend on that same compiler feature as well. A common example are API features conditional on <code>Generic</code> support:</p>
+<p>The <code>NFData</code> class is basically defined as</p>
+<pre><code>class NFData a where
+    rnf :: a -&gt; ()
+#if HAVE_GENERICS
+    default rnf :: (Generic a, GNFData (Rep a)) =&gt; a -&gt; ()
+    rnf = grnf . from
+#endif</code></pre>
+<p>Consequently, <code>rnf</code>'s default implementation is conditional on the currently available compiler features.</p>
+<p>However, it's practically impossible to write consumer code which is able to observe (i.e. break due to) this specific kind of API conditionally, as you'd need to have access to the <code>Generic</code> class and be able to define instances for it in the first place, before being able to make use of (and thus observe) the default implementation of <code>rnf</code>.</p>
+</div>
+
+
+<footer>
+  <p>If you'd like suggest changes, please <a href="https://github.com/haskell/pvp/issues">open an issue on GitHub</a>.</p>
+</footer>
+</body>
+</html>
