@@ -2,22 +2,22 @@
 title: Haskell PVP FAQ
 ---
 
-# Haskell Package Versioning Policy FAQ ^^[DRAFT]^^
+<div class="page-heading">
+FAQ
+</div>
 
 This FAQ is intended answer questions related to aspects commonly
 being brought up in discussions involving the Haskell
-[PVP](http://pvp.haskell.org).
-
-If you have a question not addressed by the FAQ entries, feel free to
+[PVP](http://pvp.haskell.org). If you have a question not addressed by the FAQ entries, feel free to
 post your question in the
 [PVP Issue Tracker](https://github.com/haskell/pvp/issues).
 
-## SemVer
+# SemVer
 
 ### How does the PVP relate to [Semantic Versioning (SemVer)](http://semver.org)?
 
 Historically, the [SemVer specification](http://semver.org) saw the light of day in late
-2009, whereas the first incarnation of the PVP was already conceived 
+2009, whereas the first incarnation of the PVP was already conceived
 [3 years earlier in late 2006](https://mail.haskell.org/pipermail/haskell/2006-November/018762.html).
 
 The basic goals of SemVer and PVP are very similiar, namely, to
@@ -81,7 +81,7 @@ ecosystems where SemVer has become the standard, it would come at a
 significant cost for the existing Hackage ecosystem.
 
 Most notably, users and tooling would need to know which dependencies
-follow SemVer and which are still using the PVP scheme. 
+follow SemVer and which are still using the PVP scheme.
 
 If it's to be allowed for a package to switch from PVP to SemVer, one
 would also need to keep track of the version at which the transition
@@ -90,7 +90,7 @@ would miss out on backward compatible updates during the transition,
 since a PVP major version upper bound is just a minor version upper
 bound in the SemVer representation.
 
-## Upper bounds
+# Upper bounds
 
 ### Defining upper bounds requires to know the future, as you can't know whether a not yet released future version will contain a breaking change.
 
@@ -107,7 +107,7 @@ empirical "known to work" evidence for (or complete control over).
 
 This assumes that compile-success is equivalent to semantic
 correctness. While it's true that a compile failure implies that a
-breakage has occurred, the inverse is not true in general. 
+breakage has occurred, the inverse is not true in general.
 
 There's been already a couple of incidents (see next Q) when popular
 packages changed their semantics without changing their type-signature
@@ -196,7 +196,7 @@ maintaining a single monolithic package, which comes at the expense of
 API consumers as they need to review major version updates more
 frequently for potential incompatibilities.
 
-## Hackage & Stackage
+# Hackage & Stackage
 
 ### My package is in Stackage and people can use it just fine; do I need to follow the PVP and put in version bounds?
 
@@ -217,7 +217,7 @@ accurate enough information to operate properly, as well as run into
 problems such as Haddock failing to regenerate documentation due to
 degrading install-plans.
 
-## Applying the PVP
+# Applying the PVP
 
 ### My Package doesn't provide any API; does the PVP apply to executable-only packages?
 

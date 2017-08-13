@@ -1,0 +1,31 @@
+<svg width="64" height="64" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>ic_haskell_grayscale_64</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(2434 801)">
+<clipPath id="clip-0" clip-rule="evenodd">
+<path d="M -2434 -801L -2370 -801L -2370 -737L -2434 -737L -2434 -801Z" fill="#FFFFFF"/>
+</clipPath>
+<g id="ic_haskell_grayscale_64" clip-path="url(#clip-0)">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(-2430 -789)" fill="#EEEEEE"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(-2416.82 -789)" fill="#CCCCCC"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(-2389.37 -767.589)" fill="#EEEEEE"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path3_fill" transform="translate(-2395.96 -777.471)" fill="#EEEEEE"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 39.5289L 13.1764 19.7644L 0 0L 9.88222 0L 23.0587 19.7644L 9.88222 39.5289L 0 39.5289Z"/>
+<path id="path1_fill" d="M -2.9052e-08 39.5289L 13.1764 19.7644L -2.9052e-08 0L 9.88222 0L 36.2346 39.5289L 26.3524 39.5289L 18.1175 27.1763L 9.88222 39.5289L -2.9052e-08 39.5289Z"/>
+<path id="path2_fill" d="M 4.39184 6.58845L 0 0.000453937L 15.3721 0L 15.3721 6.58845L 4.39184 6.58845Z"/>
+<path id="path3_fill" d="M 4.3923 6.58845L 5.8104e-08 0.000453879L 21.9606 -5.8104e-08L 21.9606 6.58845L 4.3923 6.58845Z"/>
+</defs>
+</svg>

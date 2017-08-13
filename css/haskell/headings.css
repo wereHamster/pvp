@@ -1,0 +1,55 @@
+h1 {
+    font-size: 31px;
+    font-weight: 600;
+    margin: -40px 0 20px;
+    padding-top: 80px;
+    line-height: 1.4;
+}
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 40px;
+        font-weight: 600;
+        margin: 0 0 20px;
+        padding-top: 80px;
+        margin-top: 0;
+    }
+}
+h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin: -60px 0 20px;
+    padding-top: 80px;
+    line-height: 1.4;
+}
+@media (min-width: 1024px) {
+    h2 {
+        font-size: 31px;
+        font-weight: 600;
+        margin: -40px 0 20px;
+        padding-top: 80px;
+    }
+}
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: -60px 0 12px;
+    padding-top: 80px;
+    line-height: 1.4;
+}
+@media (min-width: 1024px) {
+    h3 {
+        font-size: 25px;
+        font-weight: 600;
+        margin: -40px 0 12px;
+        padding-top: 80px;
+    }
+}
+
+h1 > .heading-anchor, h2 > .heading-anchor, h3 > .heading-anchor, h4 > .heading-anchor {
+    margin-left: 10px;
+    text-decoration: none;
+    color: rgba(34,23,42,.2);
+}
+h1 > .heading-anchor:hover, h2 > .heading-anchor:hover, h3 > .heading-anchor:hover, h4 > .heading-anchor:hover {
+    text-decoration: underline;
+}

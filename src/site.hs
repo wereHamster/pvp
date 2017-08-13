@@ -10,10 +10,16 @@ main = hakyll $ do
     match "css/*" $ do
         route   idRoute
         compile compressCssCompiler
+    match "css/haskell/*" $ do
+        route   idRoute
+        compile compressCssCompiler
 
     match "templates/*" $ do
         compile templateBodyCompiler
 
+    match "logo/*" $ do
+        route   idRoute
+        compile copyFileCompiler
     match "*.svg" $ do
         route   idRoute
         compile copyFileCompiler
@@ -21,13 +27,13 @@ main = hakyll $ do
     match "pvp-specification.md" $ do
         route (constRoute "index.html")
         compile $ pvpPandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate "templates/index.html" defaultContext
             >>= relativizeUrls
 
     match "pvp-faq.md" $ do
         route (constRoute "faq/index.html")
         compile $ pvpPandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate "templates/faq.html" defaultContext
             >>= relativizeUrls
 
 
@@ -49,5 +55,5 @@ addAnchors =
     addAnchor :: Pandoc.Block -> Pandoc.Block
     addAnchor (Pandoc.Header level attr@(id_, _, _) content) =
         Pandoc.Header level attr $ content ++
-            [Pandoc.Link ("", ["anchor"], []) [Pandoc.Str "🔗"] ('#' : id_, "")]
+            [Pandoc.Link ("", ["heading-anchor"], []) [Pandoc.Str "#"] ('#' : id_, "")]
     addAnchor block = block

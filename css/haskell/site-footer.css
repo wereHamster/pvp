@@ -1,0 +1,13 @@
+.site-footer {
+    color: rgba(34,23,42,.7);
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ddd;
+}
+@media (min-width: 800px) {
+    .site-footer {
+        margin-top: 80px;
+        padding: 20px 40px;
+    }
+}

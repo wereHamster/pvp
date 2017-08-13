@@ -2,11 +2,11 @@
 title: Haskell PVP Specification
 ---
 
-Haskell Package Versioning Policy
-=================================
+<div class="page-heading">
+Specification
+</div>
 
-Rationale
----------
+# Rationale
 
 The goal of a versioning system is to inform clients of a package of
 changes to that package that might affect them, and to provide a way for
@@ -27,8 +27,7 @@ that we were running into trouble with incorrectly-specified
 dependencies and unbuildable packages, so this page is an attempt to
 formalize the policy.
 
-Version numbers
----------------
+# Version numbers
 
 The key words "MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”,
 “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be
@@ -97,10 +96,9 @@ name is taken from another package (e.g. when `network-bytestring` was merged
 into `network`) or is quite general (`Data.Set` or something similar) then the
 version increase **SHOULD** be major.
 
-Special situations
-------------------
+# Special situations
 
-### Leaking instances
+## Leaking instances
 
 There is a case where addition or removal of an instance in a package
 that the user doesn't depend on directly can still lead to compilation
@@ -154,7 +152,7 @@ solution, for now the PVP doesn't required a major version bump in this
 case and instead leaves it to package C to add a dependency on package A
 to handle this situation.
 
-### Version tags
+## Version tags
 
 The components of the version number **MUST** be numbers! Historically Cabal
 supported version numbers with string tags at the end, e.g. `1.0-beta`
@@ -170,15 +168,13 @@ number with a date like `1.0.2014-01-27` would be interpreted as the
 version `1.0.2014` with tags `01` and `27`.
 
 
-Decision Tree
--------------
+# Decision Tree
 
 The (incomplete!) decision tree summarises the PVP rules in a concise form
 
 ![](pvp-decision-tree.svg)
 
-Dependencies in Cabal
----------------------
+# Dependencies in Cabal
 
 When publishing a Cabal package, you **SHALL** ensure that your
 dependencies in the `build-depends` field are accurate. This means
@@ -199,8 +195,7 @@ risk from new name clashes may be small, but you are on the safe side if
 you
 [import identifiers explicitly or using qualification](https://wiki.haskell.org/Import_modules_properly).
 
-Version syntax
---------------
+# Version syntax
 
 Since Cabal 1.6, you can specify an exact API version according to this
 policy with the special syntax `package == 1.1.4.*` or an API version up
@@ -208,8 +203,8 @@ to additions with `package == 1.1.*`. The former translates into
 `package >= 1.1.4 && < 1.1.5`, for example - notice that 1.1.4 *is*
 included, rather than just including 1.1.4.0.
 
-Tools
------
+# Tools
+
 
 -   script to check for API changes in gtk2hs:
     <http://code.haskell.org/gtk2hs/tools/apidiff/>
@@ -219,8 +214,8 @@ Tools
 -   [check-pvp](http://hackage.haskell.org/package/check-pvp) is a program that checks for consistency between package
     dependencies and import style.
 
-Related
--------
+# Related
+
 
 -   Sven Moritz Hallberg,
     "[Eternal compatibility in theory](https://wiki.haskell.org/The_Monad.Reader/Issue2/EternalCompatibilityInTheory),"
